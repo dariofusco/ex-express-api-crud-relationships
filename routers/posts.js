@@ -8,13 +8,16 @@ const {
     destroy
 } = require('../controllers/posts.js');
 
-router.post('/', store);
+const validator = require('../middlewares/validator.js');
+const { bodyData } = require('../validations/posts.js');
+
+router.post('/', validator(bodyData), store);
 
 router.get('/', index);
 
 router.get('/:slug', show);
 
-router.put('/:slug', update);
+router.put('/:slug', validator(bodyData), update);
 
 router.delete('/:slug', destroy);
 
