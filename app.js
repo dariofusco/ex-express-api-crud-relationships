@@ -10,10 +10,12 @@ const port = PORT || 3000;
 require("dotenv").config();
 
 const postsRouter = require("./routers/posts.js");
+const categoriesRouter = require("./routers/categories.js");
 
 
 app.use('/posts', postsRouter);
 
+app.use('/categories', categoriesRouter);
 
 app.use(notFound);
 
