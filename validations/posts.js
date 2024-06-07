@@ -57,10 +57,10 @@ const bodyData = {
         },
         custom: {
             options: async (ids) => {
-                const ingredients = await prisma.ingredient.findMany({
+                const tags = await prisma.tag.findMany({
                     where: { id: { in: ids } }
                 });
-                if (ingredients.length !== ids.length) {
+                if (tags.length !== ids.length) {
                     throw new Error(`Uno o più Tags non esistono.`);
                 }
                 return true;
