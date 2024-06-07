@@ -11,11 +11,13 @@ require("dotenv").config();
 
 const postsRouter = require("./routers/posts.js");
 const categoriesRouter = require("./routers/categories.js");
-
+const tagsRouter = require("./routers/tags.js");
 
 app.use('/posts', postsRouter);
 
 app.use('/categories', categoriesRouter);
+
+app.use('/tags', tagsRouter);
 
 app.use(notFound);
 
